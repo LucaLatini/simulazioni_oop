@@ -6,21 +6,21 @@ import java.util.*;
 public class Test {
 
 	/*
-	 * Implementare l'interfaccia SpreadRow come indicato nel metodo init qui sotto. 
-	 * Realizza una specie di "foglio excel" (Spredsheet) fatto da una unica riga. Si 
+	 * Implementare l'interfaccia SpreadRow come indicato nel metodo init qui sotto.
+	 * Realizza una specie di "foglio excel" (Spredsheet) fatto da una unica riga. Si
 	 * leggano i commenti all'interfaccia fornita e ai test qui sotto per i dettagli.
-	 * 
+	 *
 	 * Sono considerati opzionali ai fini della possibilità di correggere
 	 * l'esercizio, ma concorrono comunque al raggiungimento della totalità del
 	 * punteggio:
-	 * 
-	 * - far passare tutti i test (ossia, nella parte obbligatoria è sufficiente 
+	 *
+	 * - far passare tutti i test (ossia, nella parte obbligatoria è sufficiente
 	 * che passino tutti i test qui sotto tranne uno a piacimento)
 	 * - la buona progettazione della soluzione, utilizzando soluzioni progettuali che portino a
 	 * codice succinto che evita ripetizioni e sprechi di memoria.
-	 * 
+	 *
 	 * Si tolga il commento dal metodo initFactory.
-	 * 
+	 *
 	 * Indicazioni di punteggio:
 	 * - correttezza della parte obbligatoria (e assenza di difetti al codice): 10 punti
 	 * - correttezza della parte opzionale: 3 punti (ulteriore metodo della factory)
@@ -31,7 +31,7 @@ public class Test {
 
 	@org.junit.Before
 	public void initFactory() {
-		//this.spreadRow = new SpreadRowImpl(5); // 5 celle
+		this.spreadRow = new SpreadRowImpl(5); // 5 celle
 	}
 
 	@org.junit.Test
@@ -79,7 +79,7 @@ public class Test {
 		// SpreadRow: _,11,20,_,#1+#2
 		this.spreadRow.putNumber(1, 11);
 		assertEquals(List.of(Optional.empty(), Optional.of(11), Optional.of(20), Optional.empty(), Optional.of(31)),
-			this.spreadRow.computeValues());	
+			this.spreadRow.computeValues());
 	}
 
 	@org.junit.Test

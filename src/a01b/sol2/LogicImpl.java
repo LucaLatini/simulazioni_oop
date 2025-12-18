@@ -35,10 +35,10 @@ public class LogicImpl implements Logic {
 
     @Override
     public boolean isSelected(Position value) {
+        if (this.vertices.size() != 2) return false;
         var up = this.vertices.get(this.vertices.get(0).y() > this.vertices.get(1).y() ? 1 : 0);
         var down = this.vertices.get(this.vertices.get(0).y() > this.vertices.get(1).y() ? 0 : 1);
-        return this.vertices.size() == 2 &&
-                value.y() > up.y() && value.y() < down.y() && 
+        return value.y() > up.y() && value.y() < down.y() && 
                 value.x()-value.y() <= up.x()-up.y() && 
                 value.x()-value.y() >= down.x()-down.y() &&
                 value.x()+value.y() >= up.x()+up.y() && 
