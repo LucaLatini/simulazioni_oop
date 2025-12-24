@@ -6,22 +6,22 @@ import java.util.*;
 public class Test {
 
 	/*
-	 * Implementare l'interfaccia CellsFactory come indicato nel metodo init qui sotto. 
+	 * Implementare l'interfaccia CellsFactory come indicato nel metodo init qui sotto.
 	 * Realizza una factory per delle "celle" simili a quelle di un foglio di calcolo (come Excel),
-	 * che posso contenere valori o operazioni sul valore di altre celle. Si 
+	 * che posso contenere valori o operazioni sul valore di altre celle. Si
 	 * leggano i commenti all'interfaccia fornita e specialmente i test qui sotto per i dettagli.
-	 * 
+	 *
 	 * Sono considerati opzionali ai fini della possibilità di correggere
 	 * l'esercizio, ma concorrono comunque al raggiungimento della totalità del
 	 * punteggio:
-	 * 
-	 * - far passare tutti i test (ossia, nella parte obbligatoria è sufficiente 
+	 *
+	 * - far passare tutti i test (ossia, nella parte obbligatoria è sufficiente
 	 * che passino tutti i test qui sotto tranne uno a piacimento)
 	 * - la buona progettazione della soluzione, utilizzando soluzioni progettuali che portino a
 	 * codice succinto che evita ripetizioni e sprechi di memoria.
-	 * 
+	 *
 	 * Si tolga il commento dal metodo init.
-	 * 
+	 *
 	 * Indicazioni di punteggio:
 	 * - correttezza della parte obbligatoria (e assenza di difetti al codice): 10 punti
 	 * - correttezza della parte opzionale: 3 punti (ulteriore metodo della factory)
@@ -32,9 +32,9 @@ public class Test {
 
 	@org.junit.Before
 	public void init() {
-		//this.factory = new CellsFactoryImpl();
+		this.factory = new CellsFactoryImpl();
 	}
-	
+
 	@org.junit.Test
 	public void testMutableValue() {
 		// cella di valore 10

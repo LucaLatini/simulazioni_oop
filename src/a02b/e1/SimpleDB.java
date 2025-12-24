@@ -23,7 +23,7 @@ public interface SimpleDB {
      * @param id for the item to work with
      * @param description
      * @param value
-     * adds to the table, and to the item, a new pair of description/value 
+     * adds to the table, and to the item, a new pair of description/value
      */
     void addTuple(String tableName, int id, String description, Object value);
 
