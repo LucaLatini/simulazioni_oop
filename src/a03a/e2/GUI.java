@@ -31,6 +31,7 @@ public class GUI extends JFrame {
                 jb.addActionListener(al);
                 if( this.logic.isObstacle(new Position(j,i))){
                     jb.setText("o");
+
                 }else{
                     jb.setText("");
                 }

@@ -4,11 +4,12 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /**
- * A factory of skipping of various sorts. 
+ * A factory of skipping of various sorts.
  * The first one is already implemented, for the sake of example:
  * you may implement others using this template.
  */
 public interface SkippingFactory {
+
 
     /**
      * @param <E>
@@ -23,7 +24,7 @@ public interface SkippingFactory {
             @Override
             public E get() {
                 E out;
-                do { 
+                do {
                     out = sup.get();
                     // if the input sup produces an element equals to e, I skip it!
                 } while (out.equals(e));

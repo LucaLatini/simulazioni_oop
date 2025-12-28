@@ -8,23 +8,23 @@ import java.util.stream.Stream;
 public class Test {
 
 	/*
-	 * Implementare l'interfaccia GatheringFactory come indicato nel metodo init qui sotto. 
+	 * Implementare l'interfaccia GatheringFactory come indicato nel metodo init qui sotto.
 	 * Realizza una factory per dei Gathering che sarebbero dei trasformatori (via raccoglimento)
 	 * da supplier (fornitori) di elementi a supplier (fornitori) di elementi -- essenzialmente,
-	 * da iteratore infinito a iteratore infinito. Si leggano i commenti all'interfaccia fornita 
+	 * da iteratore infinito a iteratore infinito. Si leggano i commenti all'interfaccia fornita
 	 * e specialmente i test qui sotto per i dettagli.
-	 * 
+	 *
 	 * Sono considerati opzionali ai fini della possibilità di correggere
 	 * l'esercizio, ma concorrono comunque al raggiungimento della totalità del
 	 * punteggio:
-	 * 
-	 * - far passare tutti i test (ossia, nella parte obbligatoria è sufficiente 
+	 *
+	 * - far passare tutti i test (ossia, nella parte obbligatoria è sufficiente
 	 * che passino tutti i test qui sotto tranne uno a piacimento)
 	 * - la buona progettazione della soluzione, utilizzando soluzioni progettuali che portino a
 	 * codice succinto che evita ripetizioni e sprechi di memoria.
-	 * 
+	 *
 	 * Si tolga il commento dal metodo init.
-	 * 
+	 *
 	 * Indicazioni di punteggio:
 	 * - correttezza della parte obbligatoria (e assenza di difetti al codice): 10 punti
 	 * - correttezza della parte opzionale: 3 punti (ulteriore metodo della factory)
@@ -35,7 +35,7 @@ public class Test {
 
 	@org.junit.Before
 	public void init() {
-		//this.factory = new GatheringFactoryImpl();
+		this.factory = new GatheringFactoryImpl();
 	}
 
 	// utility che produce una lista dei primi n valori prodotto dal supplier
@@ -48,11 +48,11 @@ public class Test {
         var it = stream.iterator();
 		return it :: next;
 	}
-	
+
 	@org.junit.Test
 	public void testOne() {
 		// un gathering che raccoglie uno alla volta, ossia non fa nulla
-		var gathering = this.factory.<String>gatherOne(); 
+		var gathering = this.factory.<String>gatherOne();
 		// un supplier generato da uno stream, che produrrà via via "", "+", "++",...
 		var stream = Stream.iterate("", s -> s + "+");
 		var inputSup = fromStream(stream);
@@ -71,7 +71,7 @@ public class Test {
 			List.of("", "+", "++", "+++", "++++"),
 			toList(5, gathering.produce(sup2))); // controllo solo i primi 5
 	}
-	
+
 	@org.junit.Test
 	public void testScanToList() {
 		var g = this.factory.<Integer>scanToList(); // liste degli elementi fin qui
@@ -82,7 +82,7 @@ public class Test {
 			List.of(
 				List.of(0), List.of(0, 1), List.of(0,1,2), List.of(0,1,2,3)),
 			toList(4, sup));  // controllo solo i primi 4
-	}	
+	}
 
 	@org.junit.Test
 	public void testSlide() {
@@ -102,10 +102,10 @@ public class Test {
 		assertEquals(
 			List.of(
 				List.of(0, 10), List.of(10,20), List.of(20,30), List.of(30,40)),
-			toList(4, sup2));	
-	}	
+			toList(4, sup2));
+	}
 
-	
+
 	@org.junit.Test
 	public void testPairs() {
 		var g = this.factory.<String>pairs(); // coppie degli ultimi 2 elementi
@@ -113,9 +113,9 @@ public class Test {
 		var sup = g.produce(fromStream(Stream.iterate("", s -> s + ".")));
 
 		assertEquals(List.of(
-			new Pair<>("", "."), new Pair<>(".",".."), new Pair<>("..","..."), new Pair<>("...","....")), 
+			new Pair<>("", "."), new Pair<>(".",".."), new Pair<>("..","..."), new Pair<>("...","....")),
 			toList(4, sup));
-	}	
+	}
 
 	@org.junit.Test
 	public void testSumLastThree() {
@@ -124,9 +124,9 @@ public class Test {
 		var sup = g.produce(fromStream(Stream.iterate(0, i -> i + 10)));
 
 		assertEquals(
-			List.of( 0+10+20, 10+20+30, 20+30+40, 30+40+50), 
+			List.of( 0+10+20, 10+20+30, 20+30+40, 30+40+50),
 			toList(4, sup));
-	}	
+	}
 
 	@org.junit.Test
 	public void testScanAndReduce() {
@@ -144,6 +144,6 @@ public class Test {
 
 		assertEquals(
 			List.of(1, 1*2, 1*2*3, 1*2*3*4, 1*2*3*4*5),
-			toList(5, sup2));	
-	}	
+			toList(5, sup2));
+	}
 }

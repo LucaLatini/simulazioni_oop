@@ -6,11 +6,12 @@ import java.util.function.BinaryOperator;
 import java.util.function.Supplier;
 
 /**
- * A factory of gathering of various sorts. 
+ * A factory of gathering of various sorts.
  * The first one is already implemented, for the sake of example:
  * you may implement others using this template.
  */
 public interface GatheringFactory {
+
 
     /**
      * @param <E>

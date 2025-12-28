@@ -6,23 +6,23 @@ import java.util.*;
 public class Test {
 
 	/*
-	 * Implementare l'interfaccia DependencyArrayFactory come indicato nel metodo init qui sotto. 
+	 * Implementare l'interfaccia DependencyArrayFactory come indicato nel metodo init qui sotto.
 	 * Realizza una factory per dei DependencyArray che sarebbero array nei quali alcuni suoi elementi
-	 * potrebbero non essere scrivibili, e/o potrebbero essere vincolati ad avere un valore che dipende 
-	 * da quello di altri, ad esempio l'ultimo elemento potrebbe sempre essere la somma dei precedenti. Si 
+	 * potrebbero non essere scrivibili, e/o potrebbero essere vincolati ad avere un valore che dipende
+	 * da quello di altri, ad esempio l'ultimo elemento potrebbe sempre essere la somma dei precedenti. Si
 	 * leggano i commenti all'interfaccia fornita e specialmente i test qui sotto per i dettagli.
-	 * 
+	 *
 	 * Sono considerati opzionali ai fini della possibilità di correggere
 	 * l'esercizio, ma concorrono comunque al raggiungimento della totalità del
 	 * punteggio:
-	 * 
-	 * - far passare tutti i test (ossia, nella parte obbligatoria è sufficiente 
+	 *
+	 * - far passare tutti i test (ossia, nella parte obbligatoria è sufficiente
 	 * che passino tutti i test qui sotto tranne uno a piacimento)
 	 * - la buona progettazione della soluzione, utilizzando soluzioni progettuali che portino a
 	 * codice succinto che evita ripetizioni e sprechi di memoria.
-	 * 
+	 *
 	 * Si tolga il commento dal metodo init.
-	 * 
+	 *
 	 * Indicazioni di punteggio:
 	 * - correttezza della parte obbligatoria (e assenza di difetti al codice): 10 punti
 	 * - correttezza della parte opzionale: 3 punti (ulteriore metodo della factory)
@@ -33,7 +33,7 @@ public class Test {
 
 	@org.junit.Before
 	public void init() {
-		//this.factory = new DependencyArrayFactoryImpl();
+		this.factory = new DependencyArrayFactoryImpl();
 	}
 
 	@org.junit.Test
@@ -92,7 +92,7 @@ public class Test {
 		// un DependencyArray simile a start, ma dove in posizione 1 si legge un valore random diverso ogni volta preso da "19","20","21"
 		var array = this.factory.clonedWithOneRandom(start, 1, List.of("19", "20", "21"));
 		assertEquals(3, array.size());
-		assertEquals("10", array.read(0)); 
+		assertEquals("10", array.read(0));
 		assertEquals("30", array.read(2));
 		// leggendo 100 volte dalla posizione 1, capiterà di leggere "19", "20", "21"
 		Set<String> randomResults = new HashSet<>();
